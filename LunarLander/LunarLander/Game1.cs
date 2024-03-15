@@ -14,6 +14,11 @@ namespace LunarLander
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            //Not considering the following as part of a game Initialization, rather a defualt setting for the game window size
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.ApplyChanges();
+
         }
 
         protected override void Initialize()
@@ -21,6 +26,7 @@ namespace LunarLander
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            
         }
 
         protected override void LoadContent()
