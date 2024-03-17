@@ -1,3 +1,3 @@
 ﻿
-using var game = new LunarLander.Game1();
+using var game = new LunarLander.LunarLander();
 game.Run();

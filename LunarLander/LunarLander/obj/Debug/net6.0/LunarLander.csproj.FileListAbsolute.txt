@@ -24,3 +24,6 @@ C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\ob
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\obj\Debug\net6.0\LunarLander.pdb
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\obj\Debug\net6.0\LunarLander.genruntimeconfig.cache
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\obj\Debug\net6.0\ref\LunarLander.dll
+C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Fonts\menuSelected.xnb
+C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Fonts\menuStandard.xnb
+C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Images\LunarBackground.xnb
