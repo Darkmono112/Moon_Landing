@@ -1,15 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8LRl7CConzGHCm/KvHHzyziBKKJohVWhVJLwOu5HH+UpWUVv9uSrO5qoK+5mvfZZuHFrGmFESNhcQ767ZXz2KQ==",
+  "dgSpecHash": "E2w7eS4BuND7tcPxwNFAH20wD9BaQKCTsD14jC0d6NblQ5aSxmntZkYvXIPa1uKPESDjtrvydLlmgOZx/GcaJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\darkm\\OneDrive\\Desktop\\HomeWork\\Moon_Landing\\LunarLander\\LunarLander\\LunarLander.csproj",
+  "projectFilePath": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\LunarLander.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\darkm\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\darkm\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\darkm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\darkm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\darkm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\darkm\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.28\\microsoft.netcore.app.host.win-x64.6.0.28.nupkg.sha512"
+    "C:\\Users\\darkm\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

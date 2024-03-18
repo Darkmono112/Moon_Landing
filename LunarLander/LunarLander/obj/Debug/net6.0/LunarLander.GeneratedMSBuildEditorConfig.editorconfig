@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LunarLander
-build_property.ProjectDir = C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\
+build_property.ProjectDir = C:\Users\darkm\Documents\Homework\Moon_Landing\LunarLander\LunarLander\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
