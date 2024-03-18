@@ -5,6 +5,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
+//NOTES TO SELF: 
+// 1. Add in high scores
+// 2. Add in controls
+// 3. Add in lunar lander 
+// 4. Add in hitbox 
+// Make Terrain 
+// Make terrain Generation 
+// Make terrain draw 
+// Add safe zone for moon landing
+
 namespace CS5410
 {
     public class GamePlayView : GameStateView
@@ -12,6 +22,7 @@ namespace CS5410
         private SpriteFont m_font;
         // Keyboard for controls while in gameview
         private Input.KeyboardInput m_inputKeyboard;
+        private Texture2D m_landerTexture;
 
         public GamePlayView(Input.KeyboardInput keyboard) {
 
@@ -20,10 +31,9 @@ namespace CS5410
             //Use defualt controls for now 
             m_inputKeyboard.registerCommand(Keys.W, false, new IInputDevice.CommandDelegate(onMoveUp));
             m_inputKeyboard.registerCommand(Keys.S, false, new IInputDevice.CommandDelegate(onMoveDown));
-            m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onMoveLeft));
-            m_inputKeyboard.registerCommand(Keys.D, false, new IInputDevice.CommandDelegate(onMoveRight));
-            m_inputKeyboard.registerCommand(Keys.Q, false, new IInputDevice.CommandDelegate(onRotateLeft));
-            m_inputKeyboard.registerCommand(Keys.E, false, new IInputDevice.CommandDelegate(onRotateRight));
+            m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onRotateLeft));
+            m_inputKeyboard.registerCommand(Keys.D, false, new IInputDevice.CommandDelegate(onRotateRight));
+            
 
         }
 
@@ -31,6 +41,7 @@ namespace CS5410
         {
             m_font = contentManager.Load<SpriteFont>("Fonts/menuStandard");
             // load the sprites and stuff here. 
+            m_landerTexture = contentManager.Load<Texture2D>("Images/LanderSprite");
 
         }
 
@@ -48,19 +59,25 @@ namespace CS5410
             return GameStateEnum.GamePlay;
         }
 
+        public override void update(GameTime gameTime)
+        {
+            // Game stuff here 
+            //move position to be thrust - gravity or something
+
+
+        }
+
         public override void render(GameTime gameTime)
         {
             m_spriteBatch.Begin();
 
             //Do the game stuff here
 
+
             m_spriteBatch.End();
         }
 
-        public override void update(GameTime gameTime)
-        {
-            // Game stuff here 
-        }
+      
 
 
 
@@ -76,16 +93,6 @@ namespace CS5410
         }
 
         private void onMoveDown(GameTime gameTime, float scale)
-        {
-           
-        }
-
-        private void onMoveLeft(GameTime gameTime, float scale)
-        {
-           
-        }
-
-        private void onMoveRight(GameTime gameTime, float scale)
         {
            
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +11,12 @@ namespace LunarLander
     internal class Lander
     {
 
-        int gravity = 30; // pixels per second^2
+        float fuel;
+        Vector2 gravity;
+        Vector2 thrust;
+        Vector2 position;
 
-        int fuel = 0;
-
-        int thrust = 0;
-
-        int fuelSpent = 0;
-
+        // position = position + thrust - gravity
         public Lander() {
 
         

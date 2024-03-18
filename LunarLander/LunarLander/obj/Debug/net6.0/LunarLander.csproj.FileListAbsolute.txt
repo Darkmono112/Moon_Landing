@@ -27,3 +27,4 @@ C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\ob
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Fonts\menuSelected.xnb
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Fonts\menuStandard.xnb
 C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Images\LunarBackground.xnb
+C:\Users\darkm\OneDrive\Desktop\HomeWork\Moon_Landing\LunarLander\LunarLander\bin\Debug\net6.0\Content\Images\LanderSprite.xnb

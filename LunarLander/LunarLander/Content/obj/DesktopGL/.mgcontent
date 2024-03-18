@@ -6,9 +6,11 @@
   <SourceFiles>
     <File>C:/Users/darkm/OneDrive/Desktop/HomeWork/Moon_Landing/LunarLander/LunarLander/Content/Fonts/menuSelected.spritefont</File>
     <File>C:/Users/darkm/OneDrive/Desktop/HomeWork/Moon_Landing/LunarLander/LunarLander/Content/Fonts/menuStandard.spritefont</File>
+    <File>C:/Users/darkm/OneDrive/Desktop/HomeWork/Moon_Landing/LunarLander/LunarLander/Content/Images/LanderSprite.png</File>
     <File>C:/Users/darkm/OneDrive/Desktop/HomeWork/Moon_Landing/LunarLander/LunarLander/Content/Images/LunarBackground.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
