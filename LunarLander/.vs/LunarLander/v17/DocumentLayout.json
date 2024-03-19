@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|c:\\users\\darkm\\documents\\homework\\moon_landing\\lunarlander\\lunarlander\\views\\gameplayview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\views\\gameplayview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\input\\keyboardinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\input\\keyboardinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\views\\mainmenuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\views\\mainmenuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\lunarlander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\lunarlander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\terrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\terrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\lander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\lander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\terrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\terrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|c:\\users\\darkm\\documents\\homework\\moon_landing\\lunarlander\\lunarlander\\views\\gameplayview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\views\\gameplayview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\lunarlander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\lunarlander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\views\\mainmenuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\views\\mainmenuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\lunarlander\\input\\keyboardinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63049C5-830B-4E03-BF30-0FBCE71DE412}|LunarLander\\LunarLander.csproj|solutionrelative:lunarlander\\input\\keyboardinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,35 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Terrain.cs",
               "DocumentMoniker": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Terrain.cs",
               "RelativeDocumentMoniker": "LunarLander\\Terrain.cs",
               "ToolTip": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Terrain.cs",
               "RelativeToolTip": "LunarLander\\Terrain.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T03:19:48.853Z"
+              "WhenOpened": "2024-03-17T03:19:48.853Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Lander.cs",
               "DocumentMoniker": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Lander.cs",
               "RelativeDocumentMoniker": "LunarLander\\Lander.cs",
               "ToolTip": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Lander.cs",
               "RelativeToolTip": "LunarLander\\Lander.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T03:13:40.237Z"
+              "WhenOpened": "2024-03-17T03:13:40.237Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainMenuView.cs",
               "DocumentMoniker": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Views\\MainMenuView.cs",
               "RelativeDocumentMoniker": "LunarLander\\Views\\MainMenuView.cs",
@@ -70,11 +72,12 @@
               "RelativeToolTip": "LunarLander\\Views\\MainMenuView.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T03:09:44.875Z"
+              "WhenOpened": "2024-03-17T03:09:44.875Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "KeyboardInput.cs",
               "DocumentMoniker": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Input\\KeyboardInput.cs",
               "RelativeDocumentMoniker": "LunarLander\\Input\\KeyboardInput.cs",
@@ -86,13 +89,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GamePlayView.cs",
               "DocumentMoniker": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Views\\GamePlayView.cs",
               "RelativeDocumentMoniker": "LunarLander\\Views\\GamePlayView.cs",
               "ToolTip": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\Views\\GamePlayView.cs",
               "RelativeToolTip": "LunarLander\\Views\\GamePlayView.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAwwCwAAAAAAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwB8AAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-15T21:28:03.46Z",
               "EditorCaption": ""
@@ -105,9 +108,10 @@
               "RelativeDocumentMoniker": "LunarLander\\LunarLander.cs",
               "ToolTip": "C:\\Users\\darkm\\Documents\\Homework\\Moon_Landing\\LunarLander\\LunarLander\\LunarLander.cs",
               "RelativeToolTip": "LunarLander\\LunarLander.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAA/wAsAAAAcAAAA",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAIwHIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-15T19:42:20.943Z"
+              "WhenOpened": "2024-03-15T19:42:20.943Z",
+              "EditorCaption": ""
             }
           ]
         }

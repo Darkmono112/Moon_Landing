@@ -17,9 +17,19 @@ namespace LunarLander
         Vector2 position;
 
         // position = position + thrust - gravity
+        // Need to check collision, hitbox, movement, and make a draw function for the game view
+        // Also need a function to return the amount of fuel left as Full, mid, and empty. 
+        // Make the rectangle here
+        // Add the texture here
+        // Check collision every update
+
         public Lander() {
 
         
         }
+
+
+
+
     }
 }

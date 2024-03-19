@@ -3,6 +3,7 @@ using CS5410.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,6 +20,9 @@ namespace LunarLander
         private Rectangle m_background;
         private Texture2D m_backgroundImage;
         private Lander lander;
+
+        private Song song;
+        private bool playingSong = false;
 
         // The Keyboard will be handeled here, but it's input will be handled in the game view??
         private CS5410.Input.KeyboardInput m_inputKeyboard;
@@ -64,10 +68,12 @@ namespace LunarLander
             //Get the baclkground ready
             m_background = new Rectangle(0, 0, 1980, 1080);
 
-            
+
 
 
             //TODO change this to load saved controls ????
+
+           
 
             base.Initialize();
             
@@ -83,6 +89,7 @@ namespace LunarLander
             }
 
             m_backgroundImage = this.Content.Load<Texture2D>("Images/LunarBackground");
+            song = this.Content.Load<Song>("Audio/music");
 
             // TODO: use this.Content to load your game content here
         }
@@ -100,6 +107,12 @@ namespace LunarLander
             {
                 m_currentState.update(gameTime); // TODO update game input there? 
                 m_currentState = _states[nextStateEnum];
+            }
+
+            if (!playingSong)
+            {
+                MediaPlayer.Play(song);
+                playingSong = true;
             }
 
             

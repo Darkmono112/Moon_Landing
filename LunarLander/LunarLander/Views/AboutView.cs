@@ -9,6 +9,7 @@ namespace CS5410
     {
         private SpriteFont m_font;
         private const string MESSAGE = "Created By Robert Gordon \n Uses example code provided by Dean Mathias" +
+            "\n Music by https://alkakrab.itch.io/ " +
             "\n\nPress ESC to return to Main Menu";
 
         public override void loadContent(ContentManager contentManager)

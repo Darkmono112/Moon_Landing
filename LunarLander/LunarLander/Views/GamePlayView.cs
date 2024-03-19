@@ -29,6 +29,7 @@ namespace CS5410
             m_inputKeyboard = keyboard;
 
             //Use defualt controls for now 
+            // Replace with a loaded Dictionary, itterate through it for input
             m_inputKeyboard.registerCommand(Keys.W, false, new IInputDevice.CommandDelegate(onMoveUp));
             m_inputKeyboard.registerCommand(Keys.S, false, new IInputDevice.CommandDelegate(onMoveDown));
             m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onRotateLeft));
