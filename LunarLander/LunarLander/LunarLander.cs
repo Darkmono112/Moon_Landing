@@ -13,6 +13,8 @@ namespace LunarLander
     public class LunarLander : Game
     {
         private GraphicsDeviceManager _graphics;
+        private BasicEffect _basicEffect;
+
         private SpriteBatch _spriteBatch;
         private IGameState m_currentState;
         private Dictionary<GameStateEnum, IGameState> _states;
@@ -20,7 +22,7 @@ namespace LunarLander
         private Rectangle m_background;
         private Texture2D m_backgroundImage;
         private Lander lander;
-
+        
         private Song song;
         private bool playingSong = false;
 
@@ -43,12 +45,30 @@ namespace LunarLander
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.ApplyChanges();
 
+            _graphics.GraphicsDevice.RasterizerState = new RasterizerState
+            {
+                FillMode = FillMode.Solid,
+                CullMode = CullMode.CullCounterClockwiseFace,   // CullMode.None If you want to not worry about triangle winding order
+                MultiSampleAntiAlias = true,
+            };
+
+            _basicEffect = new BasicEffect(_graphics.GraphicsDevice)
+            {
+                VertexColorEnabled = true,
+                View = Matrix.CreateLookAt(new Vector3(0, 0, 1), Vector3.Zero, Vector3.Up),
+
+                Projection = Matrix.CreateOrthographicOffCenter(
+                    0, _graphics.GraphicsDevice.Viewport.Width,
+                    _graphics.GraphicsDevice.Viewport.Height, 0,   // doing this to get it to match the default of upper left of (0, 0)
+                    0.1f, 2)
+            };
+
             m_inputKeyboard = new KeyboardInput();
 
             _states = new Dictionary<GameStateEnum, IGameState>
             {
                 { GameStateEnum.MainMenu, new MainMenuView() },
-                { GameStateEnum.GamePlay, new GamePlayView(m_inputKeyboard) },
+                { GameStateEnum.GamePlay, new GamePlayView(m_inputKeyboard, _graphics, _basicEffect) },
                 { GameStateEnum.HighScores, new HighScoresView() },
                 { GameStateEnum.Help, new HelpView() },
                 { GameStateEnum.Controls, new ControlsView(m_inputKeyboard) },

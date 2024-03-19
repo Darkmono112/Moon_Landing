@@ -1,9 +1,11 @@
 ﻿using CS5410.Input;
+using LunarLander;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
 
 //NOTES TO SELF: 
 // 1. Add in high scores
@@ -23,17 +25,24 @@ namespace CS5410
         // Keyboard for controls while in gameview
         private Input.KeyboardInput m_inputKeyboard;
         private Texture2D m_landerTexture;
+        private GraphicsDeviceManager _graphics;
 
-        public GamePlayView(Input.KeyboardInput keyboard) {
+        private BasicEffect _basicEffect;
+
+        private Terrain terrain;
+
+        public GamePlayView(Input.KeyboardInput keyboard, GraphicsDeviceManager graphics, BasicEffect basicEffect) {
 
             m_inputKeyboard = keyboard;
-
+            _graphics = graphics;
+            _basicEffect = basicEffect;
             //Use defualt controls for now 
             // Replace with a loaded Dictionary, itterate through it for input
             m_inputKeyboard.registerCommand(Keys.W, false, new IInputDevice.CommandDelegate(onMoveUp));
             m_inputKeyboard.registerCommand(Keys.S, false, new IInputDevice.CommandDelegate(onMoveDown));
             m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onRotateLeft));
             m_inputKeyboard.registerCommand(Keys.D, false, new IInputDevice.CommandDelegate(onRotateRight));
+
             
 
         }
@@ -43,6 +52,9 @@ namespace CS5410
             m_font = contentManager.Load<SpriteFont>("Fonts/menuStandard");
             // load the sprites and stuff here. 
             m_landerTexture = contentManager.Load<Texture2D>("Images/LanderSprite");
+
+            terrain = new Terrain(1920, 1080);
+
 
         }
 
@@ -70,12 +82,25 @@ namespace CS5410
 
         public override void render(GameTime gameTime)
         {
-            m_spriteBatch.Begin();
+            VertexPositionColor[] _strip = terrain.getStrip();
+           
+            
+            int[] _indexStrip = terrain.getIndex();
+
+           
 
             //Do the game stuff here
+            foreach (EffectPass pass in _basicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                m_graphics.GraphicsDevice.DrawUserIndexedPrimitives(
+                    PrimitiveType.TriangleStrip,
+                    _strip, 0, _strip.Length,
+                    _indexStrip, 0, 3);
+            }
 
 
-            m_spriteBatch.End();
+
         }
 
       
