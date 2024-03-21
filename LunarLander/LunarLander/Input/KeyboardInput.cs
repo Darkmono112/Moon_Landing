@@ -28,7 +28,10 @@ namespace CS5410.Input
                 m_commandEntries.Remove(key);
             }
             m_commandEntries.Add(key, new CommandEntry(key, keyPressOnly, callback));
-            controlList.Add(commandName, key);
+            if (!controlList.ContainsKey(commandName))
+            {
+                controlList.Add(commandName, key);
+            }
         }
 
         public void ChangeKey(Keys newKey,bool keyPressOnly, IInputDevice.CommandDelegate callback, String commandName)
@@ -46,17 +49,7 @@ namespace CS5410.Input
             
             controlList.Add(commandName, newKey); // adds new control to the list 
         }
-
-      
-        public void debugList()
-        {
-            Debug.WriteLine(Serialize(m_commandEntries.ToList()));
-            Debug.WriteLine("Control List");
-            Debug.WriteLine(Serialize(controlList.ToList()));
-        }
-       
-
-       
+ 
         private struct CommandEntry
         {
             public CommandEntry(Keys key, bool keyPressOnly, IInputDevice.CommandDelegate callback)

@@ -19,23 +19,8 @@ namespace LunarLander
         private int[] _indexStrip;
         private int maxHeight;
         private int minHeight;
-        private MyRandom random = new MyRandom();
-        Displace displace;
+        public Displace displace;
         
-
-        struct landscape
-        {
-            public Vector3 position;
-            public bool safe { get; set; }
-            public landscape(Vector3 position, bool safe)
-            {
-                this.safe = safe;
-                this.position = position;
-            }
-
-
-        }
-        List<landscape> geography = new List<landscape>();
 
 
 
@@ -63,18 +48,11 @@ namespace LunarLander
         {
             
 
-            geography = new List<landscape>();
             displace = new Displace();
 
             displace.initList();
             displace.testDis();
 
-            int j = 0;
-            for (int i = 0; i < displace.displaceList.Count; i++)
-            {
-                geography.Add(new landscape(displace.displaceList[j], false));
-                
-            }
 
             makeTriStrip();
 
@@ -101,7 +79,7 @@ namespace LunarLander
             _indexStrip[0] = 0;
 
             int j = 0;
-            for(int i = 1; j<displace.displaceList.Count; i+=2)
+            for(int i = 1; j <displace.displaceList.Count ; i+=2)
             {
                     _strip[i].Position = displace.displaceList[j];
                     _strip[i].Color = Color.White;
@@ -113,15 +91,12 @@ namespace LunarLander
                     _indexStrip[i+1] = i+1;
 
             }
-            _strip[displace.displaceList.Count].Position = new Vector3(1920,minHeight, 0);
-            _strip[displace.displaceList.Count].Color = Color.White;
-            _indexStrip[displace.displaceList.Count] = displace.displaceList.Count;
+            //_strip[displace.displaceList.Count].Position = new Vector3(1920,minHeight, 0);
+           // _strip[displace.displaceList.Count].Color = Color.White;
+           // _indexStrip[displace.displaceList.Count] = displace.displaceList.Count;
 
 
-            foreach (var item in _strip)
-            {
-                Debug.WriteLine(item.Position.ToString());
-            }
+           
 
         }
 

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.Serialization.Json;
+using Microsoft.Xna.Framework.Audio;
 
 
 namespace LunarLander
@@ -29,6 +30,10 @@ namespace LunarLander
         private Rectangle m_background;
         private Texture2D m_backgroundImage;
         private Lander lander;
+        private Texture2D landerSprite;
+
+        private SoundEffect m_rocketBoost;
+
         
         private Song song;
         private bool playingSong = false;
@@ -125,9 +130,14 @@ namespace LunarLander
             {
                 item.Value.loadContent(this.Content);
             }
+            landerSprite = this.Content.Load<Texture2D>("Images/landerSprite");
+            lander.texture = landerSprite;
 
             m_backgroundImage = this.Content.Load<Texture2D>("Images/LunarBackground");
             song = this.Content.Load<Song>("Audio/music");
+
+            m_rocketBoost = this.Content.Load<SoundEffect>("Audio/mixkit-rocket-ignition-flames-1725");
+            lander.boost = m_rocketBoost;
 
             // TODO: use this.Content to load your game content here
         }
@@ -150,10 +160,11 @@ namespace LunarLander
             if (!playingSong)
             {
                 MediaPlayer.Play(song);
+                MediaPlayer.IsRepeating = true; // TODO maybe remove this
                 playingSong = true;
             }
 
-            
+            m_inputKeyboard.Update(gameTime);
 
             // TODO: Add your update logic here
 
@@ -188,6 +199,7 @@ namespace LunarLander
                     // Yes, I know the result is not being saved, I dont' need it
                     var result = finalizeLoadAsync();
                     result.Wait();
+                    
 
                 }
             }
@@ -210,6 +222,10 @@ namespace LunarLander
                                     m_inputKeyboard = (KeyboardInput)mySerializer.ReadObject(fs);
                                 }
                             }
+                            m_inputKeyboard.registerCommand(m_inputKeyboard.controlList["boost"], false, new IInputDevice.CommandDelegate(onMoveUp), "boost");
+                            m_inputKeyboard.registerCommand(m_inputKeyboard.controlList["rotateLeft"], false, new IInputDevice.CommandDelegate(onRotateLeft), "rotateLeft");
+                            m_inputKeyboard.registerCommand(m_inputKeyboard.controlList["rotateRight"], false, new IInputDevice.CommandDelegate(onRotateRight), "rotateRight");
+
                         }
                         else
                         {

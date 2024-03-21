@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/darkm/Documents/Homework/Moon_Landing/LunarLander/LunarLander/Content/Audio/mixkit-rocket-ignition-flames-1725.wav</File>
     <File>C:/Users/darkm/Documents/Homework/Moon_Landing/LunarLander/LunarLander/Content/Audio/music.mp3</File>
     <File>C:/Users/darkm/Documents/Homework/Moon_Landing/LunarLander/LunarLander/Content/Fonts/menuSelected.spritefont</File>
     <File>C:/Users/darkm/Documents/Homework/Moon_Landing/LunarLander/LunarLander/Content/Fonts/menuStandard.spritefont</File>
@@ -11,6 +12,7 @@
     <File>C:/Users/darkm/Documents/Homework/Moon_Landing/LunarLander/LunarLander/Content/Images/LunarBackground.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

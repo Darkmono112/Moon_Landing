@@ -22,9 +22,10 @@ namespace CS5410
     public class GamePlayView : GameStateView
     {
         private SpriteFont m_font;
+        private const string MESSAGE = "Are Safe";
+        private const string MESSAGE2 = "Crash";
         // Keyboard for controls while in gameview
         private KeyboardInput m_inputKeyboard;
-        private Texture2D m_landerTexture;
         private GraphicsDeviceManager _graphics;
 
 
@@ -32,6 +33,9 @@ namespace CS5410
 
         private Terrain terrain;
         private Lander lander;
+
+        private bool crash;
+        private bool crash2;
         public GamePlayView(KeyboardInput keyboard, GraphicsDeviceManager graphics, BasicEffect basicEffect, Lander lander)
         {
 
@@ -53,9 +57,8 @@ namespace CS5410
         {
             m_font = contentManager.Load<SpriteFont>("Fonts/menuStandard");
             // load the sprites and stuff here. 
-            m_landerTexture = contentManager.Load<Texture2D>("Images/LanderSprite");
-
             terrain = new Terrain(1920, 1080);
+
 
 
         }
@@ -67,6 +70,9 @@ namespace CS5410
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 resetTerrain();
+                crash = false;
+                crash2 = false;
+                lander.resetPositon();
                 return GameStateEnum.MainMenu;
             }
 
@@ -79,13 +85,21 @@ namespace CS5410
         private void resetTerrain()
         {
             terrain = new Terrain(1920, 1080);
-
         }
 
         public override void update(GameTime gameTime)
         {
             // Game stuff here 
             //move position to be thrust - gravity or something
+
+            m_inputKeyboard.Update(gameTime);
+            if(!crash && !crash2)
+            {
+                lander.applyGrav();
+            }
+            
+            crash = lander.colision(terrain.displace.displaceList, terrain.displace.displaceListSafe);
+            crash2 = lander.colision2(terrain.displace.displaceList, terrain.displace.displaceListSafe);
 
 
         }
@@ -111,6 +125,25 @@ namespace CS5410
                     _indexStrip, 0, _indexStrip.Length -2);
             }
 
+            m_spriteBatch.Begin();
+            m_spriteBatch.Draw(lander.texture, lander.hitbox, Color.White);
+
+            if (crash)
+            {
+                Vector2 stringSize = m_font.MeasureString(MESSAGE);
+                m_spriteBatch.DrawString(m_font, MESSAGE,
+                    new Vector2(m_graphics.PreferredBackBufferWidth / 2 - stringSize.X / 2, m_graphics.PreferredBackBufferHeight / 2 - stringSize.Y), Color.Yellow);
+            }
+            if (crash2)
+            {
+                Vector2 stringSize = m_font.MeasureString(MESSAGE2);
+                m_spriteBatch.DrawString(m_font, MESSAGE2,
+                    new Vector2(m_graphics.PreferredBackBufferWidth / 2 - stringSize.X / 2, m_graphics.PreferredBackBufferHeight / 2 - stringSize.Y), Color.Yellow);
+            }
+
+
+            m_spriteBatch.End();
+
 
 
         }
@@ -120,25 +153,7 @@ namespace CS5410
 
 
         //TODO FIGURE THIS OUT 
-
-        #region Input Handlers
-        private void onMoveUp(GameTime gameTime, float scale)
-        {
-            lander.moveUP();
-        }
-
-        private void onRotateLeft(GameTime gameTime, float scale)
-        {
-            lander.rotateLeft();
-        }
-
-        private void onRotateRight(GameTime gameTime, float scale)
-        {
-            lander.rotateRight();
-        }
-
-        #endregion
-
+    
 
     }
 }

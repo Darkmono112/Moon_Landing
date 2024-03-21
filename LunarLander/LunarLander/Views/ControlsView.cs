@@ -61,6 +61,7 @@ namespace CS5410
             updatingBoost = false;
             updatingRL = false;
             updatingRR = false;
+            this.lander = lander;
         }
 
         public override void loadContent(ContentManager contentManager)
@@ -101,10 +102,11 @@ namespace CS5410
 
                     newKey = Keyboard.GetState().GetPressedKeys()[0];
 
-                    keyboard.ChangeKey(newKey, false, new IInputDevice.CommandDelegate(onMoveUp), "boost");
+                    keyboard.ChangeKey(newKey, true, new IInputDevice.CommandDelegate(onMoveUp), "boost");
                     updatingBoost = false;
                     lockNav = false;
                     saveControls();
+                    reRegister();
 
 
                 }
@@ -118,6 +120,7 @@ namespace CS5410
                     updatingRL = false;
                     lockNav = false;
                     saveControls();
+                    reRegister();
 
                 }
                 if (updatingRR && Keyboard.GetState().GetPressedKeyCount() > 0)
@@ -130,6 +133,7 @@ namespace CS5410
                     updatingRR = false;
                     lockNav = false;
                     saveControls();
+                    reRegister();
                 }
 
                 // Arrow keys to navigate the menu
@@ -227,8 +231,6 @@ namespace CS5410
                 {
                     this.saving = true;
 
-                   
-
                     // Yes, I know the result is not being saved, I dont' need it
                     finalizeSaveAsync(keyboard);
                 }
@@ -262,7 +264,12 @@ namespace CS5410
             });
         }
 
-
+        private void reRegister()
+        {
+            keyboard.registerCommand(keyboard.controlList["boost"], false, new IInputDevice.CommandDelegate(onMoveUp), "boost");
+            keyboard.registerCommand(keyboard.controlList["rotateLeft"], false, new IInputDevice.CommandDelegate(onRotateLeft), "rotateLeft");
+            keyboard.registerCommand(keyboard.controlList["rotateRight"], false, new IInputDevice.CommandDelegate(onRotateRight), "rotateRight");
+        }
 
 
 
@@ -283,5 +290,6 @@ namespace CS5410
         }
 
         #endregion
+
     }
 }
