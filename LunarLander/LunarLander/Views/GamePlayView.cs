@@ -23,27 +23,29 @@ namespace CS5410
     {
         private SpriteFont m_font;
         // Keyboard for controls while in gameview
-        private Input.KeyboardInput m_inputKeyboard;
+        private KeyboardInput m_inputKeyboard;
         private Texture2D m_landerTexture;
         private GraphicsDeviceManager _graphics;
+
 
         private BasicEffect _basicEffect;
 
         private Terrain terrain;
-
-        public GamePlayView(Input.KeyboardInput keyboard, GraphicsDeviceManager graphics, BasicEffect basicEffect) {
+        private Lander lander;
+        public GamePlayView(KeyboardInput keyboard, GraphicsDeviceManager graphics, BasicEffect basicEffect, Lander lander)
+        {
 
             m_inputKeyboard = keyboard;
             _graphics = graphics;
             _basicEffect = basicEffect;
+            this.lander = lander;
+
+
             //Use defualt controls for now 
             // Replace with a loaded Dictionary, itterate through it for input
-            m_inputKeyboard.registerCommand(Keys.W, false, new IInputDevice.CommandDelegate(onMoveUp));
-            m_inputKeyboard.registerCommand(Keys.S, false, new IInputDevice.CommandDelegate(onMoveDown));
-            m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onRotateLeft));
-            m_inputKeyboard.registerCommand(Keys.D, false, new IInputDevice.CommandDelegate(onRotateRight));
 
-            
+
+
 
         }
 
@@ -64,12 +66,20 @@ namespace CS5410
             
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
+                resetTerrain();
                 return GameStateEnum.MainMenu;
             }
 
             m_inputKeyboard.Update(gameTime);
 
             return GameStateEnum.GamePlay;
+        }
+
+
+        private void resetTerrain()
+        {
+            terrain = new Terrain(1920, 1080);
+
         }
 
         public override void update(GameTime gameTime)
@@ -93,44 +103,38 @@ namespace CS5410
             foreach (EffectPass pass in _basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
+
+
                 m_graphics.GraphicsDevice.DrawUserIndexedPrimitives(
                     PrimitiveType.TriangleStrip,
                     _strip, 0, _strip.Length,
-                    _indexStrip, 0, 3);
+                    _indexStrip, 0, _indexStrip.Length -2);
             }
 
 
 
         }
 
-      
+
 
 
 
         //TODO FIGURE THIS OUT 
+
         #region Input Handlers
-        /// <summary>
-        /// The various moveX methods subtract half of the height/width because the rendering is performed
-        /// from the center of the rectangle because it can rotate
-        /// </summary>
         private void onMoveUp(GameTime gameTime, float scale)
         {
-           
-        }
-
-        private void onMoveDown(GameTime gameTime, float scale)
-        {
-           
+            lander.moveUP();
         }
 
         private void onRotateLeft(GameTime gameTime, float scale)
         {
-            
+            lander.rotateLeft();
         }
 
         private void onRotateRight(GameTime gameTime, float scale)
         {
-            
+            lander.rotateRight();
         }
 
         #endregion

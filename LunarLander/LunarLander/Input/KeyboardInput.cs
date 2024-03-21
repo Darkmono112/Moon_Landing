@@ -1,6 +1,13 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
+using System;
+using System.Diagnostics;
+using System.Collections;
+
+
+using static System.Text.Json.JsonSerializer; //todo remove
+using System.Linq; //TODO remove 
 
 namespace CS5410.Input
 {
@@ -9,10 +16,10 @@ namespace CS5410.Input
     /// </summary>
     public class KeyboardInput : IInputDevice
     {
-        /// <summary>
-        /// Registers a callback-based command
-        /// </summary>
-        public void registerCommand(Keys key, bool keyPressOnly, IInputDevice.CommandDelegate callback)
+        private Dictionary<Keys, CommandEntry> m_commandEntries = new Dictionary<Keys, CommandEntry>();
+        public Dictionary<String, Keys> controlList = new Dictionary<String, Keys>();
+
+        public void registerCommand(Keys key, bool keyPressOnly, IInputDevice.CommandDelegate callback, String commandName)
         {
             //
             // If already registered, remove it!
@@ -21,25 +28,35 @@ namespace CS5410.Input
                 m_commandEntries.Remove(key);
             }
             m_commandEntries.Add(key, new CommandEntry(key, keyPressOnly, callback));
+            controlList.Add(commandName, key);
         }
 
-        public void ChangeKey(Keys key,Keys newKey, bool keyPressOnly, IInputDevice.CommandDelegate callback)
+        public void ChangeKey(Keys newKey,bool keyPressOnly, IInputDevice.CommandDelegate callback, String commandName)
         {
-            if (m_commandEntries.ContainsKey(key)) ;
+            
+
+            if (m_commandEntries.ContainsKey(newKey))
             {
-                m_commandEntries.Remove(key);
+                return;
             }
             m_commandEntries.Add(newKey, new CommandEntry(newKey, keyPressOnly, callback));
+
+            m_commandEntries.Remove(controlList[commandName]); // Removed the old controls 
+            controlList.Remove(commandName); // removed saved control
+            
+            controlList.Add(commandName, newKey); // adds new control to the list 
         }
 
-        /// <summary>
-        /// Track all registered commands in this dictionary
-        /// </summary>
-        private Dictionary<Keys, CommandEntry> m_commandEntries = new Dictionary<Keys, CommandEntry>();
+      
+        public void debugList()
+        {
+            Debug.WriteLine(Serialize(m_commandEntries.ToList()));
+            Debug.WriteLine("Control List");
+            Debug.WriteLine(Serialize(controlList.ToList()));
+        }
+       
 
-        /// <summary>
-        /// Used to keep track of the details associated with a command
-        /// </summary>
+       
         private struct CommandEntry
         {
             public CommandEntry(Keys key, bool keyPressOnly, IInputDevice.CommandDelegate callback)

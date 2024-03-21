@@ -7,6 +7,13 @@ using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading.Tasks;
+
+
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Runtime.Serialization.Json;
+
 
 namespace LunarLander
 {
@@ -26,8 +33,11 @@ namespace LunarLander
         private Song song;
         private bool playingSong = false;
 
+        private bool saving = false;
+        private bool loading = false;
+
         // The Keyboard will be handeled here, but it's input will be handled in the game view??
-        private CS5410.Input.KeyboardInput m_inputKeyboard;
+        private KeyboardInput m_inputKeyboard;
 
         public LunarLander()
         {
@@ -44,6 +54,7 @@ namespace LunarLander
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.ApplyChanges();
+            lander = new Lander();
 
             _graphics.GraphicsDevice.RasterizerState = new RasterizerState
             {
@@ -63,15 +74,22 @@ namespace LunarLander
                     0.1f, 2)
             };
 
-            m_inputKeyboard = new KeyboardInput();
+            loadKeyboard(); // Loads the correct keyboard with controls
+            if(m_inputKeyboard == null)
+            { //Load Defualt controls 
+                m_inputKeyboard = new KeyboardInput();
+                m_inputKeyboard.registerCommand(Keys.W, false, new IInputDevice.CommandDelegate(onMoveUp), "boost");
+                m_inputKeyboard.registerCommand(Keys.A, false, new IInputDevice.CommandDelegate(onRotateLeft), "rotateLeft");
+                m_inputKeyboard.registerCommand(Keys.D, false, new IInputDevice.CommandDelegate(onRotateRight), "rotateRight");
+            }
 
             _states = new Dictionary<GameStateEnum, IGameState>
             {
                 { GameStateEnum.MainMenu, new MainMenuView() },
-                { GameStateEnum.GamePlay, new GamePlayView(m_inputKeyboard, _graphics, _basicEffect) },
+                { GameStateEnum.GamePlay, new GamePlayView(m_inputKeyboard, _graphics, _basicEffect, lander) },
                 { GameStateEnum.HighScores, new HighScoresView() },
                 { GameStateEnum.Help, new HelpView() },
-                { GameStateEnum.Controls, new ControlsView(m_inputKeyboard) },
+                { GameStateEnum.Controls, new ControlsView(m_inputKeyboard , lander) },
                 { GameStateEnum.About, new AboutView() }
             };
 
@@ -160,11 +178,79 @@ namespace LunarLander
             _spriteBatch.End();
         }
 
+        private void loadKeyboard()
+        {
+            lock (this)
+            {
+                if (!this.loading)
+                {
+                    this.loading = true;
+                    // Yes, I know the result is not being saved, I dont' need it
+                    var result = finalizeLoadAsync();
+                    result.Wait();
+
+                }
+            }
+        }
+        private async Task finalizeLoadAsync()
+        {
+            await Task.Run(() =>
+            {
+                using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    try
+                    {
+                        if (storage.FileExists("Controls.json"))
+                        {
+                            using (IsolatedStorageFileStream fs = storage.OpenFile("Controls.json", FileMode.Open))
+                            {
+                                if (fs != null)
+                                {
+                                    DataContractJsonSerializer mySerializer = new DataContractJsonSerializer(typeof(KeyboardInput));
+                                    m_inputKeyboard = (KeyboardInput)mySerializer.ReadObject(fs);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            m_inputKeyboard = null; // Make the defualt just in case
+                        }
+                    }
+                    catch (IsolatedStorageException)
+                    {
+                        // Ideally show something to the user, but this is demo code :)
+                    }
+                }
+
+                this.loading = false;
+            });
+        }
+
+
+        #region Input Handlers
+        private void onMoveUp(GameTime gameTime, float scale)
+        {
+            lander.moveUP();
+        }
+
+        private void onRotateLeft(GameTime gameTime, float scale)
+        {
+            lander.rotateLeft();
+        }
+
+        private void onRotateRight(GameTime gameTime, float scale)
+        {
+            lander.rotateRight();
+        }
+
+        #endregion
 
 
 
 
-        
+
+
+
 
 
     }

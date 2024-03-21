@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CS5410;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MidpointDisplacement;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 
@@ -15,21 +18,38 @@ namespace LunarLander
         private VertexPositionColor[] _strip;
         private int[] _indexStrip;
         private int maxHeight;
-        private int pointCount;
         private int minHeight;
+        private MyRandom random = new MyRandom();
+        Displace displace;
         
+
+        struct landscape
+        {
+            public Vector3 position;
+            public bool safe { get; set; }
+            public landscape(Vector3 position, bool safe)
+            {
+                this.safe = safe;
+                this.position = position;
+            }
+
+
+        }
+        List<landscape> geography = new List<landscape>();
+
+
 
         public Terrain(int x , int y) {
 
-            maxHeight = y / 3;
+            maxHeight = y / 2;
             minHeight = y;
-            pointCount = x;
+        
             
             
             // 1 point for every 2 pixels 
             
-           // generateTerrarin(0,x);
-            makeTriStrip();
+           generateTerrarin();
+            
         }
 
 
@@ -39,88 +59,69 @@ namespace LunarLander
             // and drawn flat based on first index
             // AKA clone the vector 3 but change the x for every other point
 
-        private void generateTerrarin(int Start, int End)
+        private void generateTerrarin()
         {
-            Console.WriteLine("generated Terrarain");
-
             
 
-            
+            geography = new List<landscape>();
+            displace = new Displace();
+
+            displace.initList();
+            displace.testDis();
+
+            int j = 0;
+            for (int i = 0; i < displace.displaceList.Count; i++)
+            {
+                geography.Add(new landscape(displace.displaceList[j], false));
+                
+            }
+
+            makeTriStrip();
+
+            /* j = 0;
+             for(int i = 1;i<_strip.Length;i+=2)
+             {
+                 _strip[i].Position = geography[j++].position;
+             }*/
+
         }
+
+       
+
+
 
         private void makeTriStrip()
         {
-            //_strip = new VertexPositionColor[1920];
+            _strip = new VertexPositionColor[displace.displaceList.Count*2 +1];
+            _indexStrip = new int[displace.displaceList.Count *2 + 1]; 
 
-            // will need change to include different hight levels 
-            /*_strip[0].Position = new Vector3(0,1080,0);
-            _strip[0].Color = Color.Blue;
-            for (int i = 1; i < 1920-1; i++)
-             {
-                 _strip[i].Position = new Vector3(i* 64, 600, 0);
-                 _strip[i].Color = Color.Blue; 
-                 
-                 i++;
-                 _strip[i].Position = new Vector3(i * 64, 1080, 0);
-                 _strip[i].Color = Color.Blue;
-                 
+            _strip[0].Position = new Vector3(-1, 1080 , 0);
+            _strip[0].Color = Color.White; 
 
-             }
-
-             _indexStrip = new int[1922];
-             for (int i = 0; i < 1920; i++)
-             {
-                 _indexStrip[i] = i;
-             }*/
-
-            /*_strip = new VertexPositionColor[5];
-            _strip[0].Position = new Vector3(0, 1080, 0);
-            _strip[0].Color = Color.Red;
-            _strip[1].Position = new Vector3(0, 600, 0);
-            _strip[1].Color = Color.Red;
-            _strip[2].Position = new Vector3(1920, 600, 0);
-            _strip[2].Color = Color.Red;
-
-            _strip[3].Position = new Vector3(1920, 1080, 0);
-            _strip[3].Color = Color.Blue;
-            *//*_strip[4].Position = new Vector3(4000, 600, 0);
-            _strip[4].Color = Color.Blue;*//*
-
-
-
-            _indexStrip = new int[6];
             _indexStrip[0] = 0;
-            _indexStrip[1] = 1;
-            _indexStrip[2] = 2;
-            _indexStrip[3] = 3;
-            //_indexStrip[4] = 4;*/
+
+            int j = 0;
+            for(int i = 1; j<displace.displaceList.Count; i+=2)
+            {
+                    _strip[i].Position = displace.displaceList[j];
+                    _strip[i].Color = Color.White;
+                    _indexStrip[i] = i;
+
+                
+                    _strip[i+1].Position = new Vector3(displace.displaceList[j++].X , minHeight, 0); 
+                    _strip[i + 1].Color = Color.White;
+                    _indexStrip[i+1] = i+1;
+
+            }
+            _strip[displace.displaceList.Count].Position = new Vector3(1920,minHeight, 0);
+            _strip[displace.displaceList.Count].Color = Color.White;
+            _indexStrip[displace.displaceList.Count] = displace.displaceList.Count;
 
 
-            _strip = new VertexPositionColor[7];
-            _strip[0].Position = new Vector3(200, 600, 0);
-            _strip[0].Color = Color.Red;
-            _strip[1].Position = new Vector3(300, 400, 0);
-            _strip[1].Color = Color.Green;
-            _strip[2].Position = new Vector3(400, 600, 0);
-            _strip[2].Color = Color.Blue;
-            _strip[3].Position = new Vector3(500, 400, 0);
-            _strip[3].Color = Color.Red;
-            _strip[4].Position = new Vector3(600, 600, 0);
-            _strip[4].Color = Color.Green;
-            _strip[5].Position = new Vector3(700, 400, 0);
-            _strip[5].Color = Color.Red;
-            _strip[6].Position = new Vector3(800, 600, 0);
-            _strip[6].Color = Color.Green;
-
-            _indexStrip = new int[7];
-            _indexStrip[0] = 0;
-            _indexStrip[1] = 1;
-            _indexStrip[2] = 2;
-            _indexStrip[3] = 3;
-            _indexStrip[4] = 4;
-            _indexStrip[5] = 5;
-            _indexStrip[6] = 6;
-
+            foreach (var item in _strip)
+            {
+                Debug.WriteLine(item.Position.ToString());
+            }
 
         }
 

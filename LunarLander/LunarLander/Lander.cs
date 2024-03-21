@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LunarLander
 {
-    internal class Lander
+    public class Lander
     {
 
         float fuel;
@@ -23,12 +23,13 @@ namespace LunarLander
         // Add the texture here
         // Check collision every update
 
-        public Lander() {
-
+        public Lander() { }
         
-        }
+        
 
-
+        public void moveUP() { }
+        public void rotateRight() { }
+        public void rotateLeft() { }
 
 
     }

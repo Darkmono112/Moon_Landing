@@ -25,6 +25,7 @@ namespace CS5410
 
         public override void loadContent(ContentManager contentManager)
         {
+
             m_fontMenu = contentManager.Load<SpriteFont>("Fonts/menuStandard");
             m_fontMenuSelect = contentManager.Load<SpriteFont>("Fonts/menuSelected");
         }

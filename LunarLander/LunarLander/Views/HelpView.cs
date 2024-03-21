@@ -8,7 +8,7 @@ namespace CS5410
     public class HelpView : GameStateView
     {
         private SpriteFont m_font;
-        private const string MESSAGE = "This is how to play the game";
+        private const string MESSAGE = "Land on the surface safely, good luck";
 
         public override void loadContent(ContentManager contentManager)
         {
